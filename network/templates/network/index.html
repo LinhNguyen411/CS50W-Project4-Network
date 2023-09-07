@@ -1,0 +1,52 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <div id="index-view">
+        <h1>All Posts</h1>
+        {% if user.is_authenticated %}
+            <div id="posting" class="border p-3 mr-3 ml-3">
+                <form action="" id="posting-form">
+                    {% csrf_token %}
+                    <h5>New Post</h5>
+                    <textarea class="form-control" id="posting-content"></textarea>
+                    <input type="submit" class="btn btn-primary" value="Post">
+                </form>
+            </div>
+        {% endif %}
+    </div>
+    
+    <div id="user-view" class="p-3 mb-2 bg-info text-white">
+        <h1 id="user-name"></h1>
+        <div id="user-email"></div>
+        <div><span style="font-weight: bold;" id="user-followers"></span> Followers <span id="user-following" style="font-weight: bold;margin-left: 0.5rem;"></span> Following</div>
+        <button id="follow-btn" class="btn mt-1"></button>
+    </div>
+    <div id="following-view">
+        <h1>Following Posts</h1>
+    </div>
+    <div id="post-page-view">
+    </div>
+    <hr>
+    <div id="posts-list">
+        <div id="postbox">
+    
+        </div>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center mt-3" id="pagination">
+                <li class="page-item">
+                    <button class="page-link"  id="pag-pre">Previous</button>
+                </li>
+                <li class="page-item" >
+                    <button class="page-link" id="pag-next">Next</button>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'network/index.js' %}">
+    </script>
+{% endblock %}

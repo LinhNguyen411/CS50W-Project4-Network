@@ -1,0 +1,7 @@
+.edit-btn, .like-btn, .user-link{
+    cursor: pointer;
+}
+
+.like-btn{
+    color: red;
+}
